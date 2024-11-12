@@ -1,37 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 3D Print Cost Calculator
 
-## Getting Started
+## Descripción
 
-First, run the development server:
+Esta es una aplicación web desarrollada con **Next.js** y **Tailwind CSS**, diseñada para ayudar a los usuarios a calcular el costo de las impresiones 3D. La aplicación permite calcular el precio de una impresión basándose en el consumo de filamento, tiempo de impresión, costos de electricidad, y más.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Características
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Cálculo de costos personalizados**: Puedes introducir el precio del filamento, el tiempo de impresión, el consumo de energía y otros costos asociados para calcular el costo total de la impresión.
+- **Interfaz de usuario amigable**: La aplicación tiene un diseño simple y accesible, construido con **Tailwind CSS**.
+- **Optimizada para dispositivos móviles**: La interfaz está completamente adaptada para funcionar de manera fluida en dispositivos móviles y de escritorio.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tecnologías
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Este proyecto utiliza las siguientes tecnologías:
 
-## Learn More
+- **Next.js**: Framework de React para aplicaciones web.
+- **Tailwind CSS**: Framework de CSS para estilos rápidos y responsivos.
+- **React**: Biblioteca de JavaScript para construir interfaces de usuario.
+- **Context API**: Para la gestión del estado global de la aplicación.
 
-To learn more about Next.js, take a look at the following resources:
+## Instalación
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Sigue estos pasos para instalar y ejecutar el proyecto localmente:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Clona este repositorio en tu máquina local:
 
-## Deploy on Vercel
+    ```bash
+    git clone https://github.com/tu-usuario/3d-print-cost-calculator.git
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. Navega al directorio del proyecto:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# plantilla-web
+    ```bash
+    cd 3d-print-cost-calculator
+    ```
+
+3. Instala las dependencias:
+
+    ```bash
+    npm install
+    ```
+
+4. Ejecuta la aplicación en modo de desarrollo:
+
+    ```bash
+    npm run dev
+    ```
+
+    La aplicación estará disponible en `http://localhost:3000`.
+
+## Uso
+
+1. Abre la aplicación en tu navegador.
+2. Introduce los datos necesarios sobre el filamento (precio, cantidad), tiempo de impresión, costo de electricidad, y cualquier otro parámetro que desees calcular.
+3. La aplicación calculará el costo total de la impresión basado en los valores proporcionados.
+4. Ajusta los valores según sea necesario para obtener un estimado más preciso.
+
+## Contribuir
+
+Si deseas contribuir a este proyecto, por favor sigue los siguientes pasos:
+
+1. Haz un fork del repositorio.
+2. Crea una nueva rama (`git checkout -b feature/nueva-funcionalidad`).
+3. Realiza los cambios necesarios y haz un commit (`git commit -am 'Agrega nueva funcionalidad'`).
+4. Empuja los cambios a tu rama (`git push origin feature/nueva-funcionalidad`).
+5. Crea un Pull Request.
+
+## Licencia
+
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
+
+## Contacto
+
+Si tienes alguna pregunta o sugerencia, no dudes en contactarme en [tu-email@example.com].
+
