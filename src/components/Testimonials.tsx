@@ -4,7 +4,7 @@ const testimonials = [
 ];
 
 const Testimonials = () => (
-  <section className="h-screen py-12 bg-gray-400">
+  <section className=" py-12 bg-gray-600">
     <h3 className="text-3xl font-semibold text-center mb-8">Testimonios</h3>
     <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
       {testimonials.map((testimonial) => (
