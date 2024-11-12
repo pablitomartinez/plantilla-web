@@ -1,6 +1,12 @@
+//configuracion de fontawsome para ICONOS
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import {config} from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false;
+//fin de configuracion
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Head from "next/head";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,6 +31,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        />
+      </Head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
