@@ -1,14 +1,28 @@
-'use client';
+"use client";
 import Link from "next/link";
 import Menu from "../../public/svg/menu";
 import Closed from "../../public/svg/closed";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = ()=>{
-    setIsMenuOpen(!isMenuOpen)
+  const menuRef = useRef(null);
+
+  const handleClickOutside = (event) => {
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
+      setIsMenuOpen(false);
+    }
+  };
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
   return (
     <header className="w-full bg-blue-800 text-white py-4">
@@ -36,34 +50,9 @@ const Header = () => {
         </ul>
 
         {/* Menú desplegable para pantallas pequeñas */}
-        <div className="md:hidden">
-          {/* Botón para abrir el menú */}
-          {/* <button className="text-white" onClick={toggleMenu}>
-            {isMenuOpen ? <Closed /> : <Menu />}
-          </button> */}
-
-          {/* Menú desplegable (inicialmente oculto) */}
-          {/* <ul
-            className={`absolute bg-blue-500 text-white ${
-              isMenuOpen ? "block" : "hidden"
-            }`}
-          >
-            <li>
-              <Link href="/">Inicio</Link>
-            </li>
-            <li>
-              <Link href="/about">Nosotros</Link>
-            </li>
-            <li>
-              <Link href="#services">Servicios</Link>
-            </li>
-            <li>
-              <Link href="#contact">Contacto</Link>
-            </li>
-          </ul> */}
-
+        <div className="md:hidden" ref={menuRef}>
           <div className="md:hidden">
-            <button className="text-white" onClick={toggleMenu}>
+            <button className="text-white flex justify-center items-center" onClick={toggleMenu}>
               {isMenuOpen ? <Closed /> : <Menu />}
             </button>
 
