@@ -1,5 +1,4 @@
 'use client';
-import { motion } from "framer-motion";
 import Link from "next/link";
 import Menu from "../../public/svg/menu";
 import Closed from "../../public/svg/closed";
@@ -8,44 +7,87 @@ import { useState } from "react";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+  const toggleMenu = ()=>{
+    setIsMenuOpen(!isMenuOpen)
   };
-
   return (
     <header className="w-full bg-blue-800 text-white py-4">
       <nav className="container mx-auto flex justify-between items-center px-4">
         {/* Logotipo y menú principal para pantallas medianas y grandes */}
         <Link href="/">
           <h1 className="text-xl font-bold md:text-2xl">
-            <button className="md:hidden" onClick={toggleMenu}>
-              {isMenuOpen ? <Closed /> : <Menu />}
-            </button>
+            {/* <Closed /> Icono de menú solo en pantallas pequeñas */}
             Mi Empresa
           </h1>
         </Link>
-
-        <motion.ul
-          className={`hidden md:flex space-x-4 ${
-            isMenuOpen ? "block" : "hidden"
-          }`}
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: isMenuOpen ? 1 : 0, y: isMenuOpen ? 0 : -20 }}
-          transition={{ duration: 0.3 }}
-        >
-          <motion.li whileHover={{ scale: 1.1 }}>
+        <ul className="hidden md:flex space-x-4">
+          <li>
             <Link href="/">Inicio</Link>
-          </motion.li>
-          <motion.li whileHover={{ scale: 1.1 }}>
+          </li>
+          <li>
             <Link href="/about">Nosotros</Link>
-          </motion.li>
-          <motion.li whileHover={{ scale: 1.1 }}>
+          </li>
+          <li>
             <Link href="#services">Servicios</Link>
-          </motion.li>
-          <motion.li whileHover={{ scale: 1.1 }}>
+          </li>
+          <li>
             <Link href="#contact">Contacto</Link>
-          </motion.li>
-        </motion.ul>
+          </li>
+        </ul>
+
+        {/* Menú desplegable para pantallas pequeñas */}
+        <div className="md:hidden">
+          {/* Botón para abrir el menú */}
+          {/* <button className="text-white" onClick={toggleMenu}>
+            {isMenuOpen ? <Closed /> : <Menu />}
+          </button> */}
+
+          {/* Menú desplegable (inicialmente oculto) */}
+          {/* <ul
+            className={`absolute bg-blue-500 text-white ${
+              isMenuOpen ? "block" : "hidden"
+            }`}
+          >
+            <li>
+              <Link href="/">Inicio</Link>
+            </li>
+            <li>
+              <Link href="/about">Nosotros</Link>
+            </li>
+            <li>
+              <Link href="#services">Servicios</Link>
+            </li>
+            <li>
+              <Link href="#contact">Contacto</Link>
+            </li>
+          </ul> */}
+
+          <div className="md:hidden">
+            <button className="text-white" onClick={toggleMenu}>
+              {isMenuOpen ? <Closed /> : <Menu />}
+            </button>
+
+            <ul
+              className={`absolute bg-white text-black text-center mt-4 rounded-md shadow-md transition-opacity duration-300 ease-in-out ${
+                isMenuOpen ? "opacity-100" : "opacity-0"
+              } fixed top-12 left-0 right-0 z-10`}
+            >
+              <li className="py-4 px-4 hover:bg-gray-100">
+                <Link href="/">Inicio</Link>
+              </li>
+              <li className="py-4 px-4 hover:bg-gray-100">
+                <Link href="/">Nosotros</Link>
+              </li>
+              <li className="py-4 px-4 hover:bg-gray-100">
+                <Link href="/">Nosotros</Link>
+              </li>
+              <li className="py-4 px-4 hover:bg-gray-100">
+                <Link href="/">Nosotros</Link>
+              </li>
+              {/* ... otros elementos del menú */}
+            </ul>
+          </div>
+        </div>
       </nav>
     </header>
   );
