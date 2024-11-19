@@ -1,5 +1,4 @@
 "use client";
-import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css"; // Opcional para estilos básicos
@@ -71,20 +70,24 @@ const Testimonials = () => (
     <h3 className="text-3xl font-semibold text-center mb-8">Testimonios</h3>
     <Slider {...settings}>
       {testimonials.map((testimonial) => (
-        <div key={testimonial.name} className="testimonial">
-          <div className="testimonial-image">
+        <div
+          key={testimonial.name}
+          className="testimonial bg-gray-800 p-4 rounded-lg"
+        >
+          <div className="flex items-center justify-center mb-4">
             <Image
               width={100}
               height={100}
               src={testimonial.image}
               alt={testimonial.name}
+              className="rounded-full"
             />
           </div>
-          <div className="testimonial-content bg-gray-700">
-            {" "}
-            <p>{testimonial.feedback}</p>
-            <Comilla2 />
-            <p className="mt-4 text-right">- {testimonial.name}</p>
+          <p className="flex text-white text-lg">
+            {testimonial.feedback} <Comilla2 />
+          </p>
+          <div className="flex justify-end">
+            <p className="text-white text-sm">{testimonial.name}</p>
           </div>
         </div>
       ))}
