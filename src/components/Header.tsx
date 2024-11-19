@@ -7,17 +7,22 @@ import { useState, useRef, useEffect } from "react";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const menuRef = useRef(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
-  const handleClickOutside = (event) => {
-    if (menuRef.current && !menuRef.current.contains(event.target)) {
-      setIsMenuOpen(false);
+  const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+    if (menuRef.current) {
+      const target =
+        "touches" in event ? event.touches[0].target : event.target;
+      if (target && !menuRef.current.contains(target as Node)) {
+        setIsMenuOpen(false);
+      }
     }
   };
+
   useEffect(() => {
-    document.addEventListener("touchstart", handleClickOutside);
+    document.addEventListener("click", handleClickOutside);
     return () => {
-      document.removeEventListener("touchstart", handleClickOutside);
+      document.removeEventListener("click", handleClickOutside);
     };
   }, []);
 

@@ -1,6 +1,5 @@
 "use client";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
 
 type FormData = {
   fullName: string;
@@ -21,27 +20,7 @@ const FormContact = () => {
     // Aquí puedes agregar la lógica para enviar los datos a tu servidor
   };
 
-  const generateRandomString = (length: number): string => {
-    const characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    let result = "";
-    for (let i = 0; i < length; i++) {
-      result += characters.charAt(
-        Math.floor(Math.random() * characters.length)
-      );
-    }
-    return result;
-  };
-
-  const [captchaText, setCaptchaText] = useState(generateRandomString(6));
-
-  const handleCaptchaChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.value !== captchaText) {
-      // Mostrar un mensaje de error
-      console.error("Captcha incorrecto");
-    }
-  };
-
+  
   return (
     <div className="container mx-auto  py-4 h-screen flex items-center justify-center" >
       <form
@@ -86,7 +65,7 @@ const FormContact = () => {
             <input
               type="text"
               id="captcha"
-              value={captchaText}
+              // value={captchaText}
               readOnly
               className="border border-gray-700 p-2 bg-gray-800 text-white w-24"
             />
@@ -95,7 +74,7 @@ const FormContact = () => {
               type="text"
               className="border border-gray-700 p-2 bg-gray-800 text-white w-24"
               placeholder="Ingrese el captcha"
-              onChange={handleCaptchaChange}
+              // onChange={handleCaptchaChange}
             />
           </div>
 
